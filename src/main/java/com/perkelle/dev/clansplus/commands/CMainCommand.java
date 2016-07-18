@@ -5,13 +5,12 @@ import org.bukkit.command.defaults.BukkitCommand;
 
 import java.util.Arrays;
 
-public abstract class CCommand extends BukkitCommand {
+public abstract class CMainCommand extends BukkitCommand {
 
-    public CCommand(String name, String description, String usage, String permission, String[] aliases) {
+    public CMainCommand(String name, String description, String usage, String[] aliases) {
         super(name);
         this.description = description;
         this.usageMessage = usage;
-        this.setPermission(permission);
         this.setAliases(Arrays.asList(aliases));
     }
 

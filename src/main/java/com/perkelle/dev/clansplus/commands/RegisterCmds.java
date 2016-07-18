@@ -1,5 +1,7 @@
 package com.perkelle.dev.clansplus.commands;
 
+import com.perkelle.dev.clansplus.commands.maincmds.Clan;
+import com.perkelle.dev.clansplus.commands.playercmds.Create;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandMap;
 import org.bukkit.plugin.Plugin;
@@ -10,10 +12,15 @@ import java.util.List;
 
 public class RegisterCmds {
 
-    private static List<CCommand> cmds = new ArrayList<CCommand>();
+    private static List<CMainCommand> cmds = new ArrayList<CMainCommand>();
+    private static List<CSubCommand> subCmds = new ArrayList<CSubCommand>();
 
     public void addCmds() {
+        cmds.add(new Clan());
+    }
 
+    public void addSubCmds() {
+        subCmds.add(new Create());
     }
 
     public void register(Plugin pl) {
@@ -31,7 +38,7 @@ public class RegisterCmds {
             e.printStackTrace();
         }
 
-        for(CCommand cmd : cmds) {
+        for(CMainCommand cmd : cmds) {
             try {
                 commandMap.register(cmd.getName(), cmd);
             } catch(NullPointerException e) {
@@ -39,5 +46,9 @@ public class RegisterCmds {
                 e.printStackTrace();
             }
         }
+    }
+
+    public List<CSubCommand> getSubCmds() {
+        return subCmds;
     }
 }

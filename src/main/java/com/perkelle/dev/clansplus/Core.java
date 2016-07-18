@@ -11,6 +11,7 @@ public class Core extends JavaPlugin {
     public void onEnable() {
         registerCmds = new RegisterCmds();
         registerCmds.addCmds();
+        registerCmds.addSubCmds();
         registerCmds.register(this);
     }
 }
