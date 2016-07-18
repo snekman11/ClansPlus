@@ -1,0 +1,2 @@
+1: com.perkelle.dev.clansplus.commands.RegisterCmds - Failed to get commandmap
+2: com.perkelle.dev.clansplus.commands.RegisterCmds - Failed to register commands
